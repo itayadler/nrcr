@@ -1,0 +1,11 @@
+default: &default
+  server: http://localhost:7474
+
+production:
+  <<: *default
+
+staging:
+  <<: *default
+
+development:
+  <<: *default

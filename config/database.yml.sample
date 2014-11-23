@@ -1,0 +1,13 @@
+development:
+  adapter: postgresql
+  database: nrcr
+  pool: 5
+  timeout: 5000
+  host: localhost
+
+test:
+  adapter: postgresql
+  database: nrcr_test
+  pool: 5
+  timeout: 5000
+  host: localhost

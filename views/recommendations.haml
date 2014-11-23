@@ -1,0 +1,4 @@
+%h1 Recommendations for #{@title}
+- @recommendations.each do |card|
+  %a{href: "/recommendations/#{card.code}"}
+    %img{src: "http://netrunnerdb.com/#{card.image_url}"}
