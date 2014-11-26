@@ -15,8 +15,8 @@ class NRCR < Sinatra::Base
     haml :recommendations
   end
 
-  get '/api/recommendations/:title' do
-    code = Card.where(title: params['title']).first.code
+  get '/api/recommendations/:card_code' do
+    code = params['card_code']
     recommendations = Recommendations.by_card_code(code).map do |rec|
       {
         title: rec.title,
@@ -28,7 +28,7 @@ class NRCR < Sinatra::Base
   end
 
   get '/' do
-    @cards = Card.pluck(:title).uniq.to_s
+    @cards = Card.pluck(:code, :title)
     haml :app
   end
 
