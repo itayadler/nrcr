@@ -19,8 +19,6 @@
             "Predictive algorithms that fetch you the program you need before you even know you need it."
   .container.text-center
     #autocomplete
-      :javascript
-        window.all_cards = #{@cards.to_json};
       %input#card_autocomplete.form-control{autocomplete:"off", type: 'text', placeholder: 'Enter card name', data: {provide:'typeahead', items: 6}}
       #filters.btn-group{role: 'group'}
     #recommendations
