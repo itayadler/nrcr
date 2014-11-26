@@ -13,8 +13,15 @@
   max-width: 970px;
 }
 
+.btn-filter {
+  background-color: #c4dc9a;
+  border-color: #a9be82;
+  color: black;
+}
+
 .jumbotron {
-  background-color: #fc0;
+  background-color: #c4dc9a;
+  color: #312f2f;
 }
 
 button.btn {

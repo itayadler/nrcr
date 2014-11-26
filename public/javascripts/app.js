@@ -45,6 +45,7 @@ function renderFilters(element, filters) {
       filterRecommendations(element, $(this).data('card-type'));
     });
   });
+  element.prepend('<button class="btn btn-disabled disabled btn-filter">Filters:</button>');
 }
 
 function filterRecommendations(element, type) {
