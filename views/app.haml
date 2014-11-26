@@ -1,6 +1,6 @@
 !!!
 %head
-  %title NetrunnerCRE - Card Recommendation Engine
+  %title Indexing - A simple Netrunner card recommendation engine
   %script{src: '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'}
   %script{src: '//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.compat.js'}
   %script{src: '/javascripts/bootstrap3-typeahead.min.js'}
@@ -14,7 +14,9 @@
     .jumbotron
       .container.text-center
         %h1 Indexing
-        %h3 Find out what cards play well together
+        %p
+          %i
+            "Predictive algorithms that fetch you the program you need before you even know you need it."
   .container.text-center
     #autocomplete
       %input#card_autocomplete.form-control{type: 'text', placeholder: 'Enter card name',
@@ -22,8 +24,11 @@
       #filters.btn-group{role: 'group'}
     #recommendations
   %footer
+    %hr
     .container.text-center
-      %p Created by <a href='http://twitter.com/itay'>@itayad</a>
+      %p Created by <a href='http://twitter.com/itayad'>@itayad</a>
+      %p
+        <strong>Indexing</strong> is part of <a href="http://www.grndl.net" target="_blank"><strong>GRNDL.net</strong></a>, a division of the Weyland Consortium.
       %p
         The data is based on decks published on <a href='http://netrunnerdb.com'>NetrunnerDB</a>.
       %p 
