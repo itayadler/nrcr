@@ -1,5 +1,5 @@
 $(function(){
-  $.getJSON('/javascripts/cards.json', function(cards){
+  $.getJSON('javascripts/cards.json', function(cards){
     window.cardsPayload = cards;
     window.cardNames = _.map(cards, function(card){
       return card.title;
