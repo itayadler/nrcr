@@ -1,0 +1,39 @@
+#autocomplete {
+  margin: 20px 0;
+  font-weight: bold;
+}
+#filters {
+  margin: 20px 0;
+}
+#recommendations { 
+  margin: 20px 0;
+}
+
+.container {
+  max-width: 970px;
+}
+
+.btn-filter {
+  background-color: #c4dc9a;
+  border-color: #a9be82;
+  color: black;
+}
+
+.jumbotron {
+  background-color: #c4dc9a;
+  color: #312f2f;
+}
+
+button.btn {
+  margin-top: 5px;
+  margin-left: 5px;
+  text-transform: capitalize;
+}
+
+.card {
+  margin-top: 5px;
+  margin-left: 5px;
+  width: 150px;
+  height: 208px;
+  cursor: pointer;
+}

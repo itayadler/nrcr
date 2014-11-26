@@ -1,0 +1,6 @@
+batch-import
+config
+export_graph_csv
+neo4j
+tmp
+.DS_Store
