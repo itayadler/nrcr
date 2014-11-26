@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'sinatra', :require => 'sinatra/base'
+gem 'sinatra-contrib'
 gem 'sinatra-activerecord'
 gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
 gem 'activerecord-import'

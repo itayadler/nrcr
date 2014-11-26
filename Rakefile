@@ -1,4 +1,5 @@
 require 'sinatra/activerecord/rake'
 require 'neography/tasks'
 require './app'
+require_relative './lib/tasks/import.rb'
 require_relative './lib/tasks/export.rb'

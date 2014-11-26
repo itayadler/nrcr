@@ -1,0 +1,31 @@
+!!!
+%head
+  %title NetrunnerCRE - Card Recommendation Engine
+  %script{src: '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'}
+  %script{src: '//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.compat.js'}
+  %script{src: '/javascripts/bootstrap3-typeahead.min.js'}
+  %script{src: '/javascripts/app.js'}
+  %link{rel: 'stylesheet', href: 'http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'}
+  %link{rel: 'stylesheet', href: '/stylesheets/app.css'}
+%body
+  %header
+    %a{:href => "https://github.com/itayadler/nrcr"}
+      %img{:alt => "Fork me on GitHub", "data-canonical-src" => "https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png", :src => "https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67", :style => "position: absolute; top: 0; right: 0; border: 0;"}
+    .jumbotron
+      .container.text-center
+        %h1 NetrunnerCRE
+        %h3 Find out what cards play well together
+  .container.text-center
+    #autocomplete
+      %input#card_autocomplete.form-control{type: 'text', placeholder: 'Enter card name',
+      data: {provide:'typeahead', items: 6, source: "#{@cards}"}}
+    #filters
+    #recommendations.isotope
+  %footer
+    .container.text-center
+      %p Created by <a href='http://twitter.com/itay'>@itayad</a>
+      %p
+        The data is based on decks published on <a href='http://netrunnerdb.com'>NetrunnerDB</a>.
+      %p 
+        The information presented on this site about Android:Netrunner, both literal and graphical, is copyrighted by Fantasy Flight Games and/or Wizards of the Coast.
+        This website is not produced, endorsed, supported, or affiliated with Fantasy Flight Games and/or Wizards of the Coast.
