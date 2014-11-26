@@ -11,8 +11,8 @@ namespace :export do
       {
         id: card.code,
         title: card.title,
-        img_url: "http://netrunnerdb.com#{card.image_url}",
-        card_type: card.card_type,
+        image_url: "http://netrunnerdb.com#{card.image_url}",
+        type: card.card_type,
         recommendations: recommendations.map(&:code)
       }
     end

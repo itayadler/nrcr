@@ -1,8 +1,8 @@
 $(function(){
-  initAutocomplete($('#card_autocomplete'));
-  loadCard("Jackson Howard");
   $.getJSON('/javascripts/cards.json', function(cards){
     window.cardsPayload = cards;
+    initAutocomplete($('#card_autocomplete'));
+    loadCard("Jackson Howard");
   });
 });
 
@@ -28,9 +28,15 @@ function initAutocomplete(element){
 
 function onAutocompleteSelectionUpdated(item) {
   var cid = cardId(item);
-  $.get("/api/recommendations/" + cid).then(function(response){
-    updatePage(response);
+  var cardData = _.find(cardsPayload, function(c){
+    return c.id === cid;
   });
+  var recommendations = _.map(cardData.recommendations, function(recCardId){
+    return _.find(cardsPayload, function(c){
+      return c.id === recCardId;
+    });
+  });
+  updatePage(recommendations);
   return item;
 }
 
