@@ -1,6 +1,9 @@
 $(function(){
   initAutocomplete($('#card_autocomplete'));
   loadCard("Jackson Howard");
+  $.getJSON('/javascripts/cards.json', function(cards){
+    window.cardsPayload = cards;
+  });
 });
 
 function loadCard(cardTitle) {

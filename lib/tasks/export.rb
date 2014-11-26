@@ -1,7 +1,26 @@
 require 'benchmark'
 require './app'
+require_relative '../recommendations'
 
 namespace :export do
+
+  desc 'Export all recommendations to JSON'
+  task :json do
+    cards = Card.all.map do |card|
+      recommendations = Recommendations.by_card_code(card.code)
+      {
+        id: card.code,
+        title: card.title,
+        img_url: "http://netrunnerdb.com#{card.image_url}",
+        card_type: card.card_type,
+        recommendations: recommendations.map(&:code)
+      }
+    end
+    File.open("#{Dir.pwd}/public/javascripts/cards.json", 'w') do |file|
+      file.write(cards.to_json)
+    end
+  end
+
   CARD_NODES = 'card_nodes'
   DECK_NODES = 'deck_nodes'
   CARD_DECK_RELATIONSHIPS = 'card_deck_relationships'
