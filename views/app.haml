@@ -19,7 +19,7 @@
     #autocomplete
       %input#card_autocomplete.form-control{type: 'text', placeholder: 'Enter card name',
       data: {provide:'typeahead', items: 6, source: "#{@cards}"}}
-    #filters
+      #filters.btn-group{role: 'group'}
     #recommendations.isotope
   %footer
     .container.text-center

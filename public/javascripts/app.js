@@ -36,7 +36,7 @@ function renderFilters(element, filters) {
   element.find('.btn').remove();
   filters.unshift('all');
   var btnFilters = filters.map(function(filter){
-    return '<button type="button" data-card-type="' + filter + '" class="btn btn-primary">' + filter + '</button>';
+    return '<button type="button" data-card-type="' + filter + '" class="btn btn-default">' + filter + '</button>';
   });
   element.css({opacity: 0}).animate({opacity: 1});
   element.append(btnFilters);
