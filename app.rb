@@ -15,20 +15,7 @@ class NRCR < Sinatra::Base
     haml :recommendations
   end
 
-  get '/api/recommendations/:card_code' do
-    code = params['card_code']
-    recommendations = Recommendations.by_card_code(code).map do |rec|
-      {
-        title: rec.title,
-        image_url: "http://netrunnerdb.com/#{rec.image_url}",
-        type: rec.card_type
-      }
-    end
-    json recommendations
-  end
-
   get '/' do
-    @cards = Card.pluck(:code, :title)
     haml :app
   end
 
