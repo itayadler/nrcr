@@ -18,6 +18,7 @@ properly to your local PostgreSQL.
 - `rake export:neo4j_csv` - This task will export all the cards & decks for Neo4j batch-import.
 - `rake neo4j:install` - Using Neography's task to install neo4j
 - `rake neo4j:start` - You can use rake `neo4j:start` / `rake neo4j:stop` to toggle on/off the server.
+- `brew install maven` - We need Maven to run the import script.
 - `./scripts/import_csv.sh` - Using batch-import to import to neo4j the graph.
 - `ruby app.rb` - Starts the Sinatra server
 

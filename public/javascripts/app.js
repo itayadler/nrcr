@@ -11,14 +11,24 @@ function loadCard(cardTitle) {
   onAutocompleteSelectionUpdated(cardTitle);
 }
 
+function cardNamesArray(){
+  return _.map(all_cards, function(x){return x[1]});
+}
+
+function cardId(cardName){
+  return _.find(all_cards, function(x) { return x[1] == cardName})[0];
+}
+
 function initAutocomplete(element){
   var options = element.data();
   options.updater = onAutocompleteSelectionUpdated;
+  options.source = cardNamesArray();
   element.typeahead(options);
 }
 
 function onAutocompleteSelectionUpdated(item) {
-  $.get("/api/recommendations/" + encodeURIComponent(item)).then(function(response){
+  var cid = cardId(item);
+  $.get("/api/recommendations/" + cid).then(function(response){
     updatePage(response);
   });
   return item;

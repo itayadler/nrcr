@@ -19,8 +19,9 @@
             "Predictive algorithms that fetch you the program you need before you even know you need it."
   .container.text-center
     #autocomplete
-      %input#card_autocomplete.form-control{type: 'text', placeholder: 'Enter card name',
-      data: {provide:'typeahead', items: 6, source: "#{@cards}"}}
+      :javascript
+        window.all_cards = #{@cards.to_json};
+      %input#card_autocomplete.form-control{autocomplete:"off", type: 'text', placeholder: 'Enter card name', data: {provide:'typeahead', items: 6}}
       #filters.btn-group{role: 'group'}
     #recommendations
   %footer
@@ -31,6 +32,6 @@
         <strong>Indexing</strong> is part of <a href="http://www.grndl.net" target="_blank"><strong>GRNDL.net</strong></a>, a division of the Weyland Consortium.
       %p
         The data is based on decks published on <a href='http://netrunnerdb.com'>NetrunnerDB</a>.
-      %p 
+      %p
         The information presented on this site about Android:Netrunner, both literal and graphical, is copyrighted by Fantasy Flight Games and/or Wizards of the Coast.
         This website is not produced, endorsed, supported, or affiliated with Fantasy Flight Games and/or Wizards of the Coast.

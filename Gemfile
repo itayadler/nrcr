@@ -14,7 +14,7 @@ gem 'haml'
 
 group :development do
   gem 'thin', '~> 1.5.1'
-  gem 'debugger'
+  # gem 'debugger'
 end
 
 group :test do
