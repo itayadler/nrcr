@@ -1,13 +1,40 @@
 require 'benchmark'
 require './app'
+require './app/models/deck'
+require './app/models/deck_card'
+require './app/models/card_score'
 require_relative '../recommendations'
 
 namespace :export do
 
+  task :tmp do
+    cards = CardNode.all
+    card_mapping = Hash[cards.map{|c| [c.node_id.to_s, c.code]}]
+    cards_rank = DeckCard.select(:card_code).group(:card_code).count
+    deck_count = Deck.count.to_f
+    cards.each do |c1|
+      puts "importing card #{c1.code}"
+      associated_cards = Recommendations.associated_cards(c1.node_id)
+      scores = []
+      c1_node_id = c1.node_id.to_s
+      associated_cards.each do |c2_node_id, count|
+        next if c1_node_id == c2_node_id
+        c2_code = card_mapping[c2_node_id]
+        dxy = count.to_f
+        dx = cards_rank[c2_code].to_f
+        dy = cards_rank[c1.code].to_f
+        ptagscore = dxy / dy
+        pscore = dx / deck_count
+        scores << CardScore.new(source_card_code: c1.code, dest_card_code: c2_code, score: ptagscore / pscore)
+      end
+      scores.each(&:save)
+    end
+  end
+
   desc 'Export all recommendations to JSON'
   task :json do
     cards = Card.all.map do |card|
-      recommendations = Recommendations.by_card_code(card.code)
+      recommendations = Recommendations.new_by_card_code(card.code.to_s)
       {
         id: card.code,
         title: card.title,
