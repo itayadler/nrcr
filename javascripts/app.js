@@ -83,7 +83,7 @@ function filterRecommendations(element, type) {
 function renderRecommendations(element, recommendations) {
   element.find('.card').remove();
   var newCards = recommendations.map(function(card){
-    var imgFragment = '<img data-title="' + card.title + '" width="150" height="208" src="' + card.image_url + '" class="card ' + card.type.toLowerCase() + '" />';
+    var imgFragment = '<img data-title="' + card.title + '" width="150" height="208" src="' + card.image_url.replace('/web/', '/') + '" class="card ' + card.type.toLowerCase() + '" />';
     return $(imgFragment);
   });
   element.css({opacity: 0}).animate({opacity: 1});
