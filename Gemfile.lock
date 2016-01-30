@@ -42,7 +42,6 @@ GEM
       os (>= 0.9.6)
       rubyzip (~> 1.0.0)
     os (0.9.6)
-    pg (0.17.0)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack

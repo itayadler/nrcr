@@ -16,18 +16,6 @@ ActiveRecord::Schema.define(version: 20141129211523) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-# Could not dump table "card_deck_relationships" because of following StandardError
-#   Unknown type 'unknown' for column 'type'
-
-  create_table "card_nodes", id: false, force: true do |t|
-    t.integer "node_id",   limit: 8
-    t.string  "code"
-    t.string  "side"
-    t.string  "card_type"
-    t.string  "title"
-    t.string  "image_url"
-  end
-
   create_table "card_scores", force: true do |t|
     t.string "source_card_code"
     t.string "dest_card_code"
@@ -49,12 +37,6 @@ ActiveRecord::Schema.define(version: 20141129211523) do
   create_table "deck_cards", force: true do |t|
     t.string  "card_code"
     t.integer "deck_id"
-  end
-
-  create_table "deck_nodes", id: false, force: true do |t|
-    t.integer "node_id", limit: 8
-    t.integer "nrdb_id"
-    t.text    "name"
   end
 
   create_table "decks", force: true do |t|

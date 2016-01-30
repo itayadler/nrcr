@@ -1,3 +1,4 @@
 neo4j/
 export_graph_csv/
 config/database.yml
+.idea
