@@ -9,7 +9,7 @@ amoritize the data for neo4j batch-import, and finally imports the data to neo4j
 
 - `git submodule update --init`
 - `bundle install`
-- 
+
 ** You'll need PostgreSQL to continue from here, if you don't you'll need to rewrite
 the export to neo4j_csv task, as it relies on PostgreSQL COPY command.
 
