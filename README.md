@@ -7,10 +7,12 @@ Built on-top of NetRunnerDB user decks, a card recommendation engine.
 What this does is import all the cards&decks from NetRunnerDB into PostgreSQL,
 amoritize the data for neo4j batch-import, and finally imports the data to neo4j.
 
-- `git submodule update --init` TODO: Make sure this actually works from scratch
+- `git submodule update --init`
 - `bundle install`
+- 
 ** You'll need PostgreSQL to continue from here, if you don't you'll need to rewrite
 the export to neo4j_csv task, as it relies on PostgreSQL COPY command.
+
 - `cp config/database.yml.sample config/database.yml` Make sure the database.yml is configured
 properly to your local PostgreSQL.
 - `rake db:create db:migrate`
